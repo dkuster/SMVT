@@ -1,27 +1,27 @@
 {
   "description": "Correspondance entre les fichiers de l'ancien site WordPress (wp-content/uploads/…) et leur emplacement dans media/. Utilisé une seule fois par « npm run import-wordpress <dossier uploads> ».",
   "fichiers": [
-    { "source": "2017/04/01.-Plan-de-situation.pdf", "cible": "documents/plan-sous-perimetre-1.pdf" }, 
-    { "source": "2019/12/Reception_20191203.pdf", "cible": "documents/reception-travaux-2019.pdf" }, 
+    { "source": "unavailable.pdf", "cible": "documents/plan-sous-perimetre-1.pdf", "remarque":"2017/04/01.-Plan-de-situation" }, 
+    { "source": "unavailable.pdf", "cible": "documents/reception-travaux-2019.pdf", "remarque":"2019/12/Reception_20191203" }, 
 
-    { "source": "ref/20150616_AG1.pdf", "cible": "assemblees/2015/dossier.pdf" }, 
+    { "source": "unavailable.pdf", "cible": "assemblees/2015/dossier.pdf", "remarque":"2015/06/20150616-AG1" }, 
     { "source": "20150616 - 1 - PV AG signé.pdf", "cible": "assemblees/2015/pv.pdf" },
     { "source": "20160920 - 2 - PV AG signé.pdf", "cible": "assemblees/2016/pv.pdf" },
     { "source": "20170504 - 3 - PV AG - signé.pdf", "cible": "assemblees/2017/pv.pdf" },
-    { "source": "2018/12/20181023-AG-4.pptx", "cible": "assemblees/2018/presentation.pdf", "remarque": "PowerPoint : l'ouvrir et l'enregistrer en PDF sous ce nom." },
+    { "source": "unavailable.pdf", "cible": "assemblees/2018/presentation.pdf", "remarque": "PowerPoint : l'ouvrir et l'enregistrer en PDF sous ce nom. 2018/12/20181023-AG-4.pptx" },
     { "source": "20181023 - 4 - PV AG signé.pdf", "cible": "assemblees/2018/pv.pdf" },
-    { "source": "2019/12/20191205-Assemblée-générale-5.pdf", "cible": "assemblees/2019/dossier.pdf" },
+    { "source": "unavailable.pdf", "cible": "assemblees/2019/dossier.pdf", "remarque":"2019/12/20191205-Assemblée-générale-5" },
     { "source": "20191205 - 5 - PV AG signé.pdf", "cible": "assemblees/2019/pv.pdf" },
-    { "source": "2021/06/SMVT-AG-2020-2021-vCorrigée.pdf", "cible": "assemblees/2020-2021/dossier.pdf", "remarque": "Remplace SMVT-AG-2020-2021.pdf (logo erroné sur le bulletin)." },
-    { "source": "2021/06/SMVT-AG-2020-2021-vCorrigée-BV.pdf", "cible": "assemblees/2020-2021/bulletin.pdf" },
+    { "source": "unavailable.pdf", "cible": "assemblees/2020-2021/dossier.pdf", "remarque": "Remplace SMVT-AG-2020-2021.pdf (logo erroné sur le bulletin).2021/06/SMVT-AG-2020-2021-vCorrigée" },
+    { "source": "unavailable.pdf", "cible": "assemblees/2020-2021/bulletin.pdf" , "remarque":"2021/06/SMVT-AG-2020-2021-vCorrigée-BV"},
     { "source": "20210727 - 6 - PV AG signé.pdf", "cible": "assemblees/2020-2021/pv.pdf" },
     { "source": "20221121 - 7 - PV AG non signé.pdf", "cible": "assemblees/2022/pv.pdf", "alternative": "2023/11/20221121-7-PV-AG.docx.pdf", "remarque": "Deux versions du PV 2022 : garder la version signée si elle existe (et mettre « statut » à « signe »)." },
     { "source": "20231220 - PV AG No 8 (1).pdf", "cible": "assemblees/2023/pv.pdf" },
     { "source": "20241212 - 9 - PV AG.docx (1).pdf", "cible": "assemblees/2024/pv.pdf" },
 
-    { "source": "2018/08/PlanArrosage2018.pdf", "cible": "avis/plan-arrosage-2018.pdf" },
+    { "source": "unavailable.pdf", "cible": "avis/plan-arrosage-2018.pdf", "remarque": "2018/08/PlanArrosage2018.pdf" },
 
-    { "source": "2015/05/DSC_1403.jpg", "cible": "photos/terrasses-01.jpg" },
-    { "source": "2015/05/DSC_1550.jpg", "cible": "photos/terrasses-02.jpg" }
+    { "source": "0ecc88fc-c81a-444c-bade-7222bc9eeff0.png", "cible": "photos/terrasses-01.jpg" },
+    { "source": "0ecc88fc-c81a-444c-bade-7222bc9eeff0.png", "cible": "photos/terrasses-02.jpg" }
   ]
 }
