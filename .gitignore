@@ -18,3 +18,5 @@ desktop.ini
 Wordpress/
 Database/
 uploads/
+*.xlsx
+Claude outputs/

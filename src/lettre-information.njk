@@ -9,7 +9,10 @@ permalink: /lettre-information/
 <div class="conteneur section page-texte">
   <h1>Lettre d'information</h1>
   <p class="chapeau">Recevez directement par e-mail les convocations aux assemblées générales et les informations importantes du syndicat (quelques messages par année).</p>
-  {%- if l.inscription %}
+  {%- if l.inscription and l.integrer %}
+  <iframe class="formulaire-externe" src="{{ l.inscription }}" title="Formulaire d'inscription à la lettre d'information" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <p class="discret">L'inscription est gérée par {{ l.service or "un service externe" }}. Chaque message contient un lien de désinscription. Le formulaire ne s'affiche pas ? <a href="{{ l.inscription }}" target="_blank" rel="noopener">Ouvrir le formulaire dans une nouvelle fenêtre</a>.</p>
+  {%- elif l.inscription %}
   <p><a class="bouton bouton-grand" href="{{ l.inscription }}" target="_blank" rel="noopener">S'inscrire</a></p>
   <p class="discret">L'inscription est gérée par {{ l.service or "un service externe" }}. Chaque message contient un lien de désinscription.</p>
   {%- else %}

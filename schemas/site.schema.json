@@ -46,7 +46,8 @@
       "additionalProperties": false,
       "properties": {
         "inscription": { "$ref": "communs.schema.json#/$defs/url", "description": "Page d'inscription du service de lettre d'information. Sans ce lien, le site invite à écrire au secrétariat." },
-        "service": { "type": "string", "description": "Nom du service (cité dans la page Confidentialité), ex. Brevo." }
+        "service": { "type": "string", "description": "Nom du service (cité dans la page Confidentialité), ex. Brevo." },
+        "integrer": { "type": "boolean", "description": "true : le formulaire du service est affiché directement dans la page Lettre d'information (iframe), avec un lien de secours. Sinon : bouton « S'inscrire » vers la page du service." }
       }
     },
     "photos": {

@@ -21,7 +21,7 @@ Le site évolue très peu : une convocation par an avant l'assemblée générale
 |---|---|
 | Formulaire « Contact » (CF7 → secretariat@) | Adresses e-mail de fonction sur la page Contact |
 | Formulaire « Conduite » (CF7 → conduites@, pièce jointe) | **Formulaire Tally** (pièce jointe sans compte) ; tant que son lien n'est pas renseigné, e-mail pré-rempli vers conduites@ |
-| Extension Newsletter (14 abonnés confirmés, listes « convocations AG » et « lettres d'info ») | Service externe de lettre d'information (à choisir) ; en attendant, inscription par e-mail au secrétariat |
+| Extension Newsletter (14 abonnés confirmés, listes « convocations AG » et « lettres d'info ») | Service externe de lettre d'information (Brevo) ; en attendant, inscription par e-mail au secrétariat |
 | WP Statistics, Flamingo, SMTP Mailer, Really Simple Security, Check & Log Email | Supprimés (plus de serveur, plus de données collectées) |
 | Recherche, catégories, auteurs, dates de publication | Supprimés |
 | Article « Janvier 2019 » (vœux, ajout de documents, ouverture de la newsletter) | Non repris ; la décision sur la cotisation figure dans l'AG 2019 |
@@ -78,6 +78,7 @@ Texte libre (rattachement de la parcelle au syndicat quelle que soit la culture,
 
 - Page `/lettre-information/`.
 - Si `site.json → lettreInformation.inscription` est renseigné : bouton « S'inscrire » vers la page hébergée du service ; le service gère la liste, le double opt-in, les envois et la désinscription.
+- Si `lettreInformation.integrer` vaut `true` : le formulaire du service est affiché dans la page (iframe, largeur 100 % jusqu'à 540 px), avec un lien « Ouvrir le formulaire dans une nouvelle fenêtre » en secours ; la page Confidentialité signale que ce formulaire est chargé depuis le prestataire. Service retenu : **Brevo** (formulaire hébergé `sibforms.com`).
 - Sinon : invitation à écrire au secrétariat (e-mail pré-rempli).
 - Reprise des 14 abonnés confirmés : import du CSV dans le service choisi (le fichier reste hors du dépôt).
 

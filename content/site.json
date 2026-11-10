@@ -12,7 +12,11 @@
   "email": "conduites@smvt.ch",
   "formulaire": "https://tally.so/r/BEd4dR"
   },
-  "lettreInformation": {},
+  "lettreInformation": {
+    "inscription": "https://bf8ebdf2.sibforms.com/serve/MUIFANBGTbNPlD8KhWwFQSNFMiPtJeowz2H4U0cJeZIYDrcGfDM5No0P87mJhjsBSnim8KKO2hhS7F3s4x79bDgcLe7W-lvCwBkJDoJRB0zuObJUlV45jT3bYVxjwxS4BfG7TWFEzuN5UjFeO2B1aniu2MEhH2BtyaZtPO0m3rcYQr_0hOrIaBf4des5IEcG3XTTxOBMe9yNiZU33A==",
+    "service": "Brevo (France)",
+    "integrer": false
+  },
   "photos": [
     { "fichier": "photos/terrasses-01.jpg", "alt": "Vignes en terrasses sur le coteau de Vétroz, soutenues par des murs en pierre sèche" },
     { "fichier": "photos/terrasses-02.jpg", "alt": "Murs en pierre sèche et rangs de vigne dans le vignoble en terrasses de Vétroz" }
