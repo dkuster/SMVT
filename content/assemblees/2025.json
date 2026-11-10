@@ -42,5 +42,13 @@
     {
       "point": "Divers"
     }
+  ],
+  "documents": [
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "projet",
+      "fichier": "assemblees/2025/pv.pdf"
+    }
   ]
 }
