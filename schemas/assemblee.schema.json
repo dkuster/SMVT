@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assemblée générale",
+  "description": "Un fichier par assemblée : content/assemblees/AAAA.json (ou AAAA-AAAA.json pour une assemblée couvrant deux années).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "numero",
+    "type"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "numero": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Numéro de l'assemblée (1 = 2015)."
+    },
+    "titre": {
+      "type": "string",
+      "description": "Par défaut : « Assemblée générale <année> »."
+    },
+    "type": {
+      "enum": [
+        "ordinaire",
+        "extraordinaire",
+        "correspondance"
+      ],
+      "description": "« correspondance » : vote par correspondance, sans réunion."
+    },
+    "date": {
+      "$ref": "communs.schema.json#/$defs/date",
+      "description": "Date de l'assemblée (ou des résultats pour un vote par correspondance)."
+    },
+    "heure": {
+      "$ref": "communs.schema.json#/$defs/heure"
+    },
+    "ouverture": {
+      "$ref": "communs.schema.json#/$defs/heure",
+      "description": "Ouverture de la salle."
+    },
+    "lieu": {
+      "type": "string",
+      "description": "Ex. Salle des Pas perdus, Centre scolaire des Plantys, Route du Stade 6, Vétroz"
+    },
+    "delaiVote": {
+      "$ref": "communs.schema.json#/$defs/date",
+      "description": "Vote par correspondance : date limite de renvoi du bulletin."
+    },
+    "convoqueeLe": {
+      "$ref": "communs.schema.json#/$defs/date",
+      "description": "Date figurant sur la convocation (« Vétroz, le … »)."
+    },
+    "ordreDuJour": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "point"
+        ],
+        "properties": {
+          "point": {
+            "type": "string",
+            "minLength": 2
+          },
+          "document": {
+            "type": "string",
+            "pattern": "^([0-9]{4}(-[0-9]{4})?|documents)/[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Document lié : « <assemblée>/<id> » (ex. 2024/pv) ou « documents/<id> »."
+          }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "fichier"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "communs.schema.json#/$defs/id",
+            "description": "Ex. convocation, pv, bulletin."
+          },
+          "type": {
+            "enum": [
+              "convocation",
+              "dossier",
+              "presentation",
+              "bulletin",
+              "pv",
+              "comptes",
+              "autre"
+            ]
+          },
+          "titre": {
+            "type": "string",
+            "description": "Par défaut, déduit du type (« Procès-verbal », « Bulletin de vote »…)."
+          },
+          "statut": {
+            "enum": [
+              "signe",
+              "non-signe",
+              "projet"
+            ],
+            "description": "Pour un procès-verbal."
+          },
+          "fichier": {
+            "$ref": "communs.schema.json#/$defs/cheminPdf"
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Décisions et résultats des votes, une phrase par élément."
+    },
+    "texte": {
+      "$ref": "communs.schema.json#/$defs/texteHtml"
+    },
+    "brouillon": {
+      "type": "boolean",
+      "description": "true : non publiée."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "enum": [
+              "ordinaire",
+              "extraordinaire"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "date",
+          "heure",
+          "lieu"
+        ],
+        "properties": {
+          "date": true,
+          "heure": true,
+          "lieu": true
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "correspondance"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "delaiVote"
+        ],
+        "properties": {
+          "delaiVote": true
+        }
+      }
+    }
+  ]
+}

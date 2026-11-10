@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 10,
+  "type": "ordinaire",
+  "date": "2025-12-11",
+  "heure": "20:00",
+  "ouverture": "19:45",
+  "lieu": "Salle des Pas perdus, Centre scolaire des Plantys, Route du Stade 6, Vétroz",
+  "convoqueeLe": "2025-11-11",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 12 décembre 2024, approbation par l'assemblée",
+      "document": "2024/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2024"
+    },
+    {
+      "point": "Remise en état des murs 2026"
+    },
+    {
+      "point": "Projet « Filtration »"
+    },
+    {
+      "point": "Cotisations"
+    },
+    {
+      "point": "Renouvellement du comité"
+    },
+    {
+      "point": "Divers"
+    }
+  ]
+}

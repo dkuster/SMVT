@@ -1,0 +1,12 @@
+{
+  "$schema": "../schemas/comite.schema.json",
+  "membres": [
+    { "fonction": "Présidence", "nom": "Mme Chloé Fontannaz", "email": "presidence@smvt.ch" },
+    { "fonction": "Secrétariat", "nom": "M. Fabien Papilloud", "email": "secretariat@smvt.ch" },
+    { "fonction": "Caisse", "nom": "M. Alexandre Roh", "email": "caisse@smvt.ch" },
+    { "fonction": "Site web", "nom": "M. Dominique Kuster", "email": "webmaster@smvt.ch" },
+    { "nom": "M. Stéphane Pillet" },
+    { "nom": "M. Benoît Huser" },
+    { "nom": "M. Gérald Glassey" }
+  ]
+}

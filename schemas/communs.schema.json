@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Définitions communes",
+  "$defs": {
+    "html": {
+      "type": "string",
+      "x-html": true,
+      "description": "HTML restreint : p, br, strong, b, em, i, u, a (href), ul, ol, li, h3, h4, blockquote."
+    },
+    "texteHtml": {
+      "description": "Texte libre en HTML restreint. Soit une chaîne, soit une liste de paragraphes (chaque élément est entouré de <p> s'il ne commence pas déjà par une balise de bloc).",
+      "oneOf": [
+        { "$ref": "#/$defs/html" },
+        { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/html" } }
+      ]
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://",
+      "description": "Adresse web complète (https://…)."
+    },
+    "email": { "type": "string", "format": "email", "pattern": "@", "description": "Adresse e-mail." },
+    "date": { "type": "string", "format": "date", "description": "Date AAAA-MM-JJ." },
+    "heure": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$", "description": "Heure HH:MM, ex. 20:00" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Identifiant en minuscules, chiffres et tirets, ex. pv" },
+    "cheminImage": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9/._-]*\\.(jpg|jpeg|png|webp)$",
+      "description": "Chemin relatif au dossier media/ (minuscules, sans espaces ni accents), ex. photos/terrasses-01.jpg"
+    },
+    "cheminPdf": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9/._-]*\\.pdf$",
+      "description": "Chemin d'un PDF relatif au dossier media/, ex. assemblees/2025/convocation.pdf"
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fichier", "alt"],
+      "properties": {
+        "fichier": { "$ref": "#/$defs/cheminImage" },
+        "alt": { "type": "string", "minLength": 3, "description": "Description de l'image pour les personnes malvoyantes et les moteurs de recherche." },
+        "legende": { "type": "string", "description": "Légende affichée sous l'image (facultatif)." }
+      }
+    },
+    "documentSimple": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["titre", "fichier"],
+      "properties": {
+        "titre": { "type": "string", "minLength": 3, "description": "Texte du lien, ex. « Plan des tours d'arrosage »." },
+        "fichier": { "$ref": "#/$defs/cheminPdf" }
+      }
+    }
+  }
+}

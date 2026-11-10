@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+estAccueil: true
+---
+{%- from "partials/macros.njk" import lienDocument, ficheAssemblee %}
+{%- set s = smvt.site %}
+<section class="accueil-intro{% if s.photos and s.photos.length %} avec-photo{% endif %}">
+  {%- if s.photos and s.photos.length %}
+  <div class="accueil-photo">{% image s.photos[0].fichier, s.photos[0].alt, "100vw", [800, 1200, 1600, 2000], "eager" %}</div>
+  {%- endif %}
+  <div class="conteneur accueil-titre">
+    <p class="surtitre">{{ s.nomCourt }}</p>
+    <h1>Syndicat pour le Maintien du Vignoble en Terrasses de Vétroz</h1>
+    <p class="chapeau">{{ s.description }}</p>
+  </div>
+</section>
+
+{%- set ag = smvt.prochaine or smvt.derniere %}
+{%- if ag %}
+<section class="section conteneur" aria-labelledby="titre-ag">
+  <div class="encadre encadre-ag{% if ag.aVenir %} a-venir{% endif %}">
+    <p class="surtitre">{{ "Prochaine assemblée générale" if ag.aVenir else "Dernière assemblée générale" }}</p>
+    <h2 id="titre-ag"><a href="{{ ag.url }}">{{ ag.titre }}</a> <span class="badge">n° {{ ag.numero }}</span></h2>
+    {{ ficheAssemblee(ag) }}
+    {%- if ag.aVenir %}
+    <p><a class="bouton" href="{{ ag.url }}">Convocation et ordre du jour</a></p>
+    {%- else %}
+    <p>
+      {%- if ag.pv %}{{ lienDocument(ag.pv) }}{% else %}<span class="discret">Le procès-verbal sera publié après sa rédaction.</span>{% endif %}
+    </p>
+    <p><a class="lien-fleche" href="{{ ag.url }}">Ordre du jour et documents</a></p>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if smvt.avisEnCours.length %}
+<section class="section conteneur" aria-labelledby="titre-avis">
+  <h2 id="titre-avis">Avis</h2>
+  <ul class="liste-avis">
+    {%- for a in smvt.avisEnCours %}
+    <li><a href="{{ a.url }}">{{ a.titre }}</a> <span class="discret">— {{ a.date | dateSimple }}</span></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+<section class="section conteneur" aria-labelledby="titre-acces">
+  <h2 id="titre-acces" class="sr">Accès rapides</h2>
+  <ul class="grille-acces">
+    <li><a class="carte-acces" href="/assemblees/"><strong>Assemblées générales</strong><span>Convocations, ordres du jour et décisions depuis 2015</span></a></li>
+    <li><a class="carte-acces" href="/documents/"><strong>Documents</strong><span>Statuts, procès-verbaux, plans</span></a></li>
+    <li><a class="carte-acces" href="/infos-pratiques/"><strong>Infos pratiques</strong><span>Parcelles non exploitées, adhésion, retrait</span></a></li>
+    <li><a class="carte-acces" href="/contact/#conduite"><strong>Problème de conduite</strong><span>Signaler une fuite ou un problème d'irrigation</span></a></li>
+  </ul>
+</section>
+
+<section class="section bandeau" aria-labelledby="titre-lettre">
+  <div class="conteneur bandeau-interieur">
+    <div>
+      <h2 id="titre-lettre">Recevoir les convocations par e-mail</h2>
+      <p>Inscrivez-vous à la lettre d'information du syndicat.</p>
+    </div>
+    <p class="bandeau-actions"><a class="bouton" href="/lettre-information/">S'inscrire</a></p>
+  </div>
+</section>

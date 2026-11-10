@@ -1,0 +1,77 @@
+{
+  "$schema": "../schemas/redirections.schema.json",
+  "redirections": [
+    {
+      "de": "/ag2015/",
+      "vers": "/assemblees/2015/"
+    },
+    {
+      "de": "/assemblee-generale-2016/",
+      "vers": "/assemblees/2016/"
+    },
+    {
+      "de": "/assemblee-generale-2017/",
+      "vers": "/assemblees/2017/"
+    },
+    {
+      "de": "/assemblee-generale-2018/",
+      "vers": "/assemblees/2018/"
+    },
+    {
+      "de": "/assemblee-generale-2022/",
+      "vers": "/assemblees/2022/"
+    },
+    {
+      "de": "/assemblee-generale-2023/",
+      "vers": "/assemblees/2023/"
+    },
+    {
+      "de": "/assemblee-generale-2024/",
+      "vers": "/assemblees/2024/"
+    },
+    {
+      "de": "/assemblee-generale-2025/",
+      "vers": "/assemblees/2025/"
+    },
+    {
+      "de": "/__trashed/",
+      "vers": "/assemblees/2019/"
+    },
+    {
+      "de": "/janvier-2019/",
+      "vers": "/assemblees/2019/"
+    },
+    {
+      "de": "/juin-2021/",
+      "vers": "/assemblees/2020-2021/"
+    },
+    {
+      "de": "/decisions-de-lag-virtuelle/",
+      "vers": "/assemblees/2020-2021/"
+    },
+    {
+      "de": "/smvt-ag-2020-2021-vcorrigee/",
+      "vers": "/assemblees/2020-2021/"
+    },
+    {
+      "de": "/arrosages/",
+      "vers": "/avis/2018-08-03-arrosages/"
+    },
+    {
+      "de": "/newsletter/",
+      "vers": "/lettre-information/"
+    },
+    {
+      "de": "/conduite/",
+      "vers": "/contact/#conduite"
+    },
+    {
+      "de": "/category/assemblee-generale/",
+      "vers": "/assemblees/"
+    },
+    {
+      "de": "/author/admin/",
+      "vers": "/"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+permalink: /infos-pratiques/
+eleventyComputed:
+  titre: "{{ smvt.infosPratiques.titre }}"
+  description: "{{ smvt.infosPratiques.introduction }}"
+---
+{%- set p = smvt.infosPratiques %}
+<article class="conteneur section page-texte">
+  <h1>{{ p.titre }}</h1>
+  {%- if p.introduction %}<p class="chapeau">{{ p.introduction }}</p>{% endif %}
+  <div class="texte">{{ p.texte | html | safe }}</div>
+</article>

@@ -1,0 +1,19 @@
+---
+pagination:
+  data: smvt.redirections
+  size: 1
+  alias: r
+permalink: "{{ r.de }}index.html"
+eleventyExcludeFromCollections: true
+---
+<!doctype html>
+<html lang="fr-CH">
+<head>
+<meta charset="utf-8">
+<title>Redirection — {{ smvt.site.nom }}</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ r.vers | absolue(smvt.site.url) }}">
+<meta http-equiv="refresh" content="0; url={{ r.vers }}">
+</head>
+<body><p>Cette page a déménagé : <a href="{{ r.vers }}">{{ r.vers }}</a>.</p></body>
+</html>

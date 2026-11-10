@@ -1,0 +1,28 @@
+{%- set s = smvt.site %}
+<footer class="pied">
+  <div class="pied-interieur">
+    <div class="pied-bloc">
+      <img class="pied-logo" src="/assets/logo-pied.svg" alt="" width="56" height="56">
+      <p><strong>{{ s.nomOfficiel }}</strong></p>
+    </div>
+    <div class="pied-bloc">
+      <h2>Contact</h2>
+      <address>
+        {%- if s.contact.adresse %}
+        {%- set a = s.contact.adresse %}
+        {{ s.nomCourt }}<br>{% if a.complement %}{{ a.complement }}<br>{% endif %}{{ a.rue }}<br>{{ a.npa }} {{ a.localite }}<br>
+        {%- endif %}
+        Secrétariat : <a href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a>
+      </address>
+      <p><a href="/contact/#conduite">Signaler un problème de conduite</a></p>
+    </div>
+    <div class="pied-bloc">
+      <h2>Rester informé</h2>
+      <p>Recevez les convocations aux assemblées par e-mail.</p>
+      <p><a href="/lettre-information/">Lettre d'information</a></p>
+    </div>
+  </div>
+  <div class="pied-bas">
+    <p>© {{ build.annee }} {{ s.nomCourt }} · <a href="/mentions-legales/">Mentions légales</a> · <a href="/confidentialite/">Confidentialité</a></p>
+  </div>
+</footer>

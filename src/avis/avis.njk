@@ -1,0 +1,24 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: smvt.avis
+  size: 1
+  alias: a
+  addAllPagesToCollections: true
+permalink: "{{ a.url }}"
+eleventyComputed:
+  titre: "{{ a.titre }}"
+  description: "{{ a.texte | texteBrut(160) }}"
+---
+{%- from "partials/macros.njk" import lienDocument %}
+<article class="conteneur section page-texte">
+  <p class="fil"><a href="/avis/">Avis</a></p>
+  <h1>{{ a.titre }}</h1>
+  <p class="discret">{{ a.date | dateSimple }}</p>
+  <div class="texte">{{ a.texte | html | safe }}</div>
+  {%- if a.documents.length %}
+  <ul class="liste-docs">
+    {%- for d in a.documents %}<li>{{ lienDocument(d) }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+</article>

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Documents de référence (hors assemblées générales)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documents"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "documents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "titre", "fichier"],
+        "properties": {
+          "id": { "$ref": "communs.schema.json#/$defs/id", "description": "Identifiant utilisé pour y renvoyer depuis une AG : « documents/<id> »." },
+          "titre": { "type": "string", "minLength": 3 },
+          "date": { "$ref": "communs.schema.json#/$defs/date" },
+          "description": { "type": "string" },
+          "fichier": { "$ref": "communs.schema.json#/$defs/cheminPdf" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+---
+layout: layouts/base.njk
+titre: Lettre d'information
+description: Recevoir par e-mail les convocations aux assemblées générales et les informations importantes du SMVT.
+permalink: /lettre-information/
+---
+{%- set s = smvt.site %}
+{%- set l = s.lettreInformation or {} %}
+<div class="conteneur section page-texte">
+  <h1>Lettre d'information</h1>
+  <p class="chapeau">Recevez directement par e-mail les convocations aux assemblées générales et les informations importantes du syndicat (quelques messages par année).</p>
+  {%- if l.inscription %}
+  <p><a class="bouton bouton-grand" href="{{ l.inscription }}" target="_blank" rel="noopener">S'inscrire</a></p>
+  <p class="discret">L'inscription est gérée par {{ l.service or "un service externe" }}. Chaque message contient un lien de désinscription.</p>
+  {%- else %}
+  <p>L'inscription en ligne est en cours de mise en place. En attendant, pour recevoir les convocations par e-mail, écrivez au secrétariat :</p>
+  <p><a class="bouton" href="{{ s.contact.email | mailto('Inscription à la lettre d\'information', 'Je souhaite recevoir les convocations et les informations du SMVT à cette adresse.\n\nNom et prénom :\n') }}">{{ s.contact.email }}</a></p>
+  {%- endif %}
+  <p>Les convocations sont aussi publiées sur ce site, dans la page <a href="/assemblees/">Assemblées générales</a>.</p>
+</div>

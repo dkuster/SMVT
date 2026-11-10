@@ -1,0 +1,19 @@
+{
+  "$schema": "../schemas/site.schema.json",
+  "nom": "Syndicat pour le Maintien du Vignoble en Terrasses de Vétroz",
+  "nomCourt": "SMVT",
+  "nomOfficiel": "Syndicat pour le maintien du vignoble en terrasses sur la commune de Vétroz",
+  "description": "Le SMVT réunit les propriétaires de vignes du coteau en terrasses de Vétroz pour l'entretien des murs, des accès et du réseau d'irrigation.",
+  "url": "https://www.smvt.ch",
+  "contact": {
+    "email": "secretariat@smvt.ch"
+  },
+  "conduite": {
+    "email": "conduites@smvt.ch"
+  },
+  "lettreInformation": {},
+  "photos": [
+    { "fichier": "photos/terrasses-01.jpg", "alt": "Vignes en terrasses sur le coteau de Vétroz, soutenues par des murs en pierre sèche" },
+    { "fichier": "photos/terrasses-02.jpg", "alt": "Murs en pierre sèche et rangs de vigne dans le vignoble en terrasses de Vétroz" }
+  ]
+}

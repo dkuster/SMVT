@@ -1,0 +1,58 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 5,
+  "type": "ordinaire",
+  "date": "2019-12-05",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle des miroirs du Relais du Valais SA, Vétroz",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée, mot du Président"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 23 octobre 2018, approbation par l'assemblée",
+      "document": "2018/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2018"
+    },
+    {
+      "point": "Remise en état des murs 2019-2020"
+    },
+    {
+      "point": "Solde des travaux d'irrigation"
+    },
+    {
+      "point": "Cotisations"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "dossier",
+      "type": "dossier",
+      "fichier": "assemblees/2019/dossier.pdf"
+    },
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2019/pv.pdf"
+    }
+  ],
+  "decisions": [
+    "La cotisation est fixée à 10 centimes par mètre carré."
+  ]
+}

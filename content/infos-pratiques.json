@@ -1,0 +1,11 @@
+{
+  "$schema": "../schemas/page.schema.json",
+  "titre": "Infos pratiques",
+  "introduction": "L'adhésion au SMVT est liée à la parcelle elle-même, et non à son mode d'exploitation.",
+  "texte": [
+    "Le comité tient à préciser que le syndicat a plusieurs buts et que ceux-ci sont valables quelle que soit la culture (ou non-culture) (<a href=\"/media/documents/statuts.pdf\">statuts</a>, art. 4).",
+    "Même si une parcelle n'est plus exploitée en vigne, temporairement ou définitivement :",
+    "<ul><li>elle reste inscrite au cadastre viticole ;</li><li>elle demeure notamment raccordée au réseau d'eau d'irrigation ;</li><li>elle reste intégrée au périmètre du syndicat ;</li><li>elle reste éligible aux subventions liées aux accès et aux murs.</li></ul>",
+    "Conformément aux statuts (art. 5), il n'est pas possible de se retirer du syndicat. Seule la vente ou la donation devant notaire permet au nouveau propriétaire de reprendre les droits et obligations liés à la parcelle."
+  ]
+}

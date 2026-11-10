@@ -1,0 +1,30 @@
+<header class="entete">
+  <div class="entete-interieur">
+    <a class="entete-marque" href="/" aria-label="{{ smvt.site.nomCourt }} — accueil">
+      <img src="/assets/logo.svg" alt="" width="44" height="44">
+      <span class="entete-nom">
+        <strong>{{ smvt.site.nomCourt }}</strong>
+        <span>Vignoble en terrasses de Vétroz</span>
+      </span>
+    </a>
+    <nav class="nav-large" aria-label="Navigation principale">
+      <ul>
+        {%- for lien in navigation %}
+        {%- set actif = (page.url == lien.url) or (lien.url != "/" and page.url.startsWith(lien.url)) %}
+        <li><a href="{{ lien.url }}"{% if actif %} aria-current="page"{% endif %}>{{ lien.titre }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <details class="nav-mobile">
+      <summary><span class="burger" aria-hidden="true"></span><span class="sr">Menu</span></summary>
+      <nav aria-label="Navigation principale (mobile)">
+        <ul>
+          {%- for lien in navigation %}
+          {%- set actif = (page.url == lien.url) or (lien.url != "/" and page.url.startsWith(lien.url)) %}
+          <li><a href="{{ lien.url }}"{% if actif %} aria-current="page"{% endif %}>{{ lien.titre }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>

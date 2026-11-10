@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: smvt.assemblees
+  size: 1
+  alias: ag
+  addAllPagesToCollections: true
+permalink: "{{ ag.url }}"
+eleventyComputed:
+  titre: "{{ ag.titre }}"
+  description: "{{ smvt.site.nomCourt }} — {{ ag.titre }} (n° {{ ag.numero }}) : convocation, ordre du jour et documents."
+---
+{%- from "partials/macros.njk" import lienDocument, ficheAssemblee %}
+{%- set s = smvt.site %}
+<article class="conteneur section page-texte">
+  <p class="fil"><a href="/assemblees/">Assemblées générales</a></p>
+  <p class="surtitre">Assemblée générale n° {{ ag.numero }}{% if ag.type == "extraordinaire" %} — extraordinaire{% endif %}</p>
+  <h1>{{ ag.titre }}{% if ag.aVenir %} <span class="badge badge-accent">à venir</span>{% endif %}</h1>
+
+  {%- if ag.type != "correspondance" and (ag.ordreDuJour.length or ag.convoqueeLe) %}
+  <p>Les membres propriétaires de vignes dans le périmètre du {{ s.nomOfficiel | replace("Syndicat", "syndicat") }} sont convoqués en assemblée générale. Cette assemblée générale est convoquée par le Comité du syndicat selon l'art. 9 des <a href="/media/documents/statuts.pdf">statuts</a>.</p>
+  {%- endif %}
+
+  {{ ficheAssemblee(ag) }}
+
+  {%- if ag.texte %}<div class="texte">{{ ag.texte | html | safe }}</div>{% endif %}
+
+  {%- if ag.ordreDuJour.length %}
+  <h2>Ordre du jour</h2>
+  <ol class="ordre-du-jour">
+    {%- for p in ag.ordreDuJour %}
+    <li>{{ p.point }}{% if p.lien %} <span class="odj-doc">— {{ lienDocument(p.lien, p.lien.titreComplet or p.lien.titre) }}</span>{% endif %}</li>
+    {%- endfor %}
+  </ol>
+  {%- endif %}
+
+  {%- if ag.convoqueeLe %}
+  <p class="signature">Vétroz, le {{ ag.convoqueeLe | dateSimple }}<br>Le Comité</p>
+  {%- endif %}
+
+  {%- if ag.decisions and ag.decisions.length %}
+  <h2>Décisions</h2>
+  <ul>
+    {%- for d in ag.decisions %}<li>{{ d }}</li>{% endfor %}
+  </ul>
+  {%- endif %}
+
+  <h2>Documents</h2>
+  {%- if ag.documents.length %}
+  <ul class="liste-docs">
+    {%- for d in ag.documents %}<li>{{ lienDocument(d) }}</li>{% endfor %}
+  </ul>
+  {%- else %}
+  <p class="discret">{{ "Les documents seront publiés ici." if ag.aVenir else "Le procès-verbal sera publié après sa rédaction." }}</p>
+  {%- endif %}
+
+  {%- set index = pagination.pageNumber %}
+  <nav class="voisins" aria-label="Autres assemblées">
+    {%- if index > 0 %}{% set suivante = smvt.assemblees[index - 1] %}<a href="{{ suivante.url }}">← {{ suivante.titre }}</a>{% else %}<span></span>{% endif %}
+    {%- if index < smvt.assemblees.length - 1 %}{% set precedente = smvt.assemblees[index + 1] %}<a href="{{ precedente.url }}">{{ precedente.titre }} →</a>{% endif %}
+  </nav>
+</article>
+{%- if ag.aVenir and ag.type != "correspondance" %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": ag.titre + " du " + s.nomCourt,
+  "startDate": ag.date | isoZurich(ag.heure),
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": { "@type": "Place", "name": ag.lieu, "address": ag.lieu },
+  "organizer": { "@type": "Organization", "name": s.nom, "url": s.url }
+} | jsonLd | safe }}</script>
+{%- endif %}

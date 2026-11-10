@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Informations générales du site",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["nom", "nomCourt", "nomOfficiel", "description", "url", "contact"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "nom": { "type": "string", "description": "Nom usuel, ex. Syndicat pour le Maintien du Vignoble en Terrasses de Vétroz" },
+    "nomCourt": { "type": "string", "description": "Sigle, ex. SMVT" },
+    "nomOfficiel": { "type": "string", "description": "Nom figurant dans les statuts et les convocations." },
+    "description": { "type": "string", "description": "Une phrase (pied de page, moteurs de recherche)." },
+    "url": { "$ref": "communs.schema.json#/$defs/url" },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["email"],
+      "properties": {
+        "email": { "$ref": "communs.schema.json#/$defs/email", "description": "Adresse générale (secrétariat)." },
+        "adresse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rue", "npa", "localite"],
+          "properties": {
+            "complement": { "type": "string" },
+            "rue": { "type": "string" },
+            "npa": { "type": "string", "pattern": "^[0-9]{4}$" },
+            "localite": { "type": "string" },
+            "pays": { "type": "string" }
+          }
+        }
+      }
+    },
+    "conduite": {
+      "type": "object",
+      "description": "Signalement d'un problème de conduite (réseau d'irrigation).",
+      "additionalProperties": false,
+      "required": ["email"],
+      "properties": {
+        "email": { "$ref": "communs.schema.json#/$defs/email" },
+        "formulaire": { "$ref": "communs.schema.json#/$defs/url", "description": "Lien du formulaire Tally. Sans ce lien, le site propose un e-mail pré-rempli." }
+      }
+    },
+    "lettreInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "inscription": { "$ref": "communs.schema.json#/$defs/url", "description": "Page d'inscription du service de lettre d'information. Sans ce lien, le site invite à écrire au secrétariat." },
+        "service": { "type": "string", "description": "Nom du service (cité dans la page Confidentialité), ex. Brevo." }
+      }
+    },
+    "photos": {
+      "type": "array",
+      "description": "Photos des terrasses (la première sert de bandeau sur l'accueil).",
+      "items": { "$ref": "communs.schema.json#/$defs/image" }
+    }
+  }
+}

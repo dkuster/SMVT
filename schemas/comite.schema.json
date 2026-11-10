@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Comité",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["membres"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "introduction": { "$ref": "communs.schema.json#/$defs/texteHtml" },
+    "membres": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["nom"],
+        "properties": {
+          "fonction": { "type": "string", "description": "Ex. Présidence, Secrétariat, Caisse. Laisser vide pour un membre sans fonction." },
+          "nom": { "type": "string", "minLength": 3, "description": "Ex. Mme Chloé Fontannaz" },
+          "email": { "$ref": "communs.schema.json#/$defs/email", "description": "Adresse de fonction (presidence@smvt.ch…), jamais une adresse privée." }
+        }
+      }
+    }
+  }
+}

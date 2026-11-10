@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 3,
+  "type": "ordinaire",
+  "date": "2017-05-04",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle paroissiale, Vétroz",
+  "convoqueeLe": "2017-04-18",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée, mot du Président"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 20 septembre 2016, approbation par l'assemblée",
+      "document": "2016/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2016"
+    },
+    {
+      "point": "Remise en état des murs du sous-périmètre 1",
+      "document": "documents/plan-sous-perimetre-1"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2017/pv.pdf"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+---
+permalink: /css/theme.css
+eleventyExcludeFromCollections: true
+---
+/* Généré depuis theme/theme.json — ne pas modifier ici. */
+{%- set t = smvt.theme %}
+{%- for f in t.polices.fichiers %}
+@font-face { font-family: "{{ f.famille }}"; src: url("../fonts/{{ f.fichier }}") format("woff2"); font-weight: {{ f.graisse or "400" }}; font-style: {{ f.style or "normal" }}; font-display: swap; }
+{%- endfor %}
+:root {
+  --fond: {{ t.couleurs.fond }};
+  --surface: {{ t.couleurs.surface }};
+  --texte: {{ t.couleurs.texte }};
+  --texte-discret: {{ t.couleurs.texteDiscret }};
+  --accent: {{ t.couleurs.accent }};
+  --accent-texte: {{ t.couleurs.accentTexte }};
+  --bordure: {{ t.couleurs.bordure }};
+  --logo: {{ t.couleurs.logo }};
+  --pied: {{ t.couleurs.piedDePage or t.couleurs.texte }};
+  --pied-texte: {{ t.couleurs.piedDePageTexte or t.couleurs.fond }};
+  --police-titres: {{ t.polices.titres | safe }};
+  --police-texte: {{ t.polices.texte | safe }};
+  --rayon: {{ t.rayon or "10px" }};
+  --largeur-max: {{ t.largeurMax or "68rem" }};
+}

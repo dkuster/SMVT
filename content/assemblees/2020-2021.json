@@ -1,0 +1,37 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 6,
+  "titre": "Assemblée générale 2020-2021",
+  "type": "correspondance",
+  "date": "2021-07-27",
+  "delaiVote": "2021-07-07",
+  "texte": [
+    "Assemblée générale tenue par correspondance. Le document de l'assemblée contient l'ordre du jour, les rapports du comité et des comptes ainsi que le bulletin de vote, à renvoyer avant le 7 juillet 2021.",
+    "Une erreur de logo s'étant glissée dans le bulletin de vote initialement mis à disposition, un bulletin corrigé a été publié."
+  ],
+  "documents": [
+    {
+      "id": "dossier",
+      "type": "dossier",
+      "fichier": "assemblees/2020-2021/dossier.pdf"
+    },
+    {
+      "id": "bulletin",
+      "type": "bulletin",
+      "fichier": "assemblees/2020-2021/bulletin.pdf"
+    },
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2020-2021/pv.pdf"
+    }
+  ],
+  "decisions": [
+    "Le procès-verbal de l'assemblée générale du 5 décembre 2019 est accepté.",
+    "Les comptes 2019 sont approuvés.",
+    "Les comptes 2020 sont approuvés.",
+    "La suite des travaux est approuvée.",
+    "La cotisation est maintenue à 10 centimes par mètre carré."
+  ]
+}

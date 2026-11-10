@@ -1,0 +1,161 @@
+/* Feuille de style principale. Les couleurs et polices viennent de theme.css (theme/theme.json). */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: var(--police-texte);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3, h4 { font-family: var(--police-titres); line-height: 1.2; margin: 0 0 0.5em; font-weight: 700; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); margin-top: 1.5em; }
+h3 { font-size: 1.25rem; }
+p, ul, ol, dl, blockquote { margin: 0 0 1em; }
+
+.sr, .evitement:not(:focus) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.evitement:focus { position: fixed; top: 0.5rem; left: 0.5rem; z-index: 10; background: var(--surface); padding: 0.5rem 1rem; }
+
+.conteneur { width: 100%; max-width: var(--largeur-max); margin-inline: auto; padding-inline: 1rem; }
+@media (min-width: 40rem) { .conteneur { padding-inline: 1.5rem; } }
+.section { padding-block: 2rem; }
+.section > h2:first-child, .section-courte > h2:first-child { margin-top: 0; }
+.section-courte { margin-top: 2.5rem; }
+.chapeau { font-size: 1.2rem; color: var(--texte-discret); max-width: 40rem; }
+.surtitre { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 600; color: var(--texte-discret); margin-bottom: 0.4em; }
+.discret { color: var(--texte-discret); }
+.fil { font-size: 0.9rem; color: var(--texte-discret); }
+.fil a { color: inherit; }
+.liste-simple { list-style: none; padding: 0; }
+.liste-simple li { margin-bottom: 0.35em; }
+.lien-fleche::after { content: " →"; }
+
+/* --- En-tête -------------------------------------------------------------- */
+.entete { background: var(--fond); border-bottom: 1px solid var(--bordure); position: sticky; top: 0; z-index: 5; }
+.entete-interieur { max-width: var(--largeur-max); margin-inline: auto; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.entete-marque { display: flex; align-items: center; gap: 0.65rem; color: var(--texte); text-decoration: none; }
+.entete-marque img { width: 2.6rem; height: 2.6rem; }
+.entete-nom { display: flex; flex-direction: column; line-height: 1.15; }
+.entete-nom strong { font-family: var(--police-titres); font-size: 1.45rem; letter-spacing: 0.04em; }
+.entete-nom span { font-size: 0.8rem; color: var(--texte-discret); }
+.nav-large { display: none; }
+.nav-large ul, .nav-mobile ul { list-style: none; margin: 0; padding: 0; }
+.nav-large a, .nav-mobile a { color: var(--texte); text-decoration: none; font-weight: 600; }
+.nav-large a[aria-current], .nav-mobile a[aria-current] { color: var(--accent); }
+
+.nav-mobile summary { list-style: none; cursor: pointer; padding: 0.75rem; margin-right: -0.75rem; }
+.nav-mobile summary::-webkit-details-marker { display: none; }
+.burger, .burger::before, .burger::after { display: block; width: 1.5rem; height: 2px; background: var(--texte); border-radius: 2px; position: relative; transition: transform 0.2s; }
+.burger::before, .burger::after { content: ""; position: absolute; left: 0; }
+.burger::before { top: -7px; }
+.burger::after { top: 7px; }
+.nav-mobile[open] .burger { background: transparent; }
+.nav-mobile[open] .burger::before { transform: translateY(7px) rotate(45deg); }
+.nav-mobile[open] .burger::after { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile nav { position: absolute; left: 0; right: 0; top: 100%; background: var(--fond); border-bottom: 1px solid var(--bordure); box-shadow: 0 12px 24px rgb(0 0 0 / 0.08); }
+.nav-mobile li a { display: block; padding: 0.9rem 1rem; border-top: 1px solid var(--bordure); font-size: 1.1rem; }
+
+@media (min-width: 60rem) {
+  .nav-mobile { display: none; }
+  .nav-large { display: block; }
+  .nav-large ul { display: flex; gap: 1.4rem; }
+  .nav-large a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em; }
+}
+
+/* --- Boutons -------------------------------------------------------------- */
+.bouton {
+  display: inline-block; background: var(--accent); color: var(--accent-texte); text-decoration: none;
+  font-weight: 700; padding: 0.7rem 1.25rem; border-radius: var(--rayon); border: 2px solid var(--accent);
+  line-height: 1.2; margin: 0 0.5rem 0.5rem 0;
+}
+.bouton:hover { filter: brightness(1.12); text-decoration: none; }
+.bouton-secondaire { background: transparent; color: var(--accent); }
+.bouton-grand { font-size: 1.1rem; padding: 0.9rem 1.6rem; }
+.badge { display: inline-block; font-family: var(--police-texte); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--texte-discret); border: 1px solid var(--bordure); border-radius: 999px; padding: 0.1rem 0.5rem; vertical-align: middle; }
+
+.badge-accent { color: var(--accent); border-color: var(--accent); }
+
+/* --- Accueil -------------------------------------------------------------- */
+.accueil-intro { padding-block: 2.5rem 0.5rem; }
+.accueil-intro h1 { margin-bottom: 0.4em; font-size: clamp(1.8rem, 5vw, 2.7rem); max-width: 22ch; }
+.accueil-intro.avec-photo { padding: 0; }
+.accueil-photo picture, .accueil-photo img { width: 100%; height: clamp(12rem, 50vw, 30rem); object-fit: cover; }
+.accueil-intro.avec-photo .accueil-titre { padding-block: 1.5rem 0.5rem; }
+@media (min-width: 48rem) {
+  .accueil-intro.avec-photo { position: relative; color: #fff; background: var(--pied); }
+  .accueil-intro.avec-photo .accueil-titre { position: absolute; inset: auto 0 0 0; padding-block: 5rem 1.75rem; background: linear-gradient(transparent, rgb(0 0 0 / 0.65)); max-width: none; }
+  .accueil-intro.avec-photo .accueil-titre > * { max-width: calc(var(--largeur-max) - 3rem); margin-inline: auto; }
+  .accueil-intro.avec-photo .chapeau, .accueil-intro.avec-photo .surtitre { color: rgb(255 255 255 / 0.9); }
+}
+
+.encadre.encadre-ag { border-left: 6px solid var(--accent); }
+.encadre-ag h2 { margin-top: 0; }
+.encadre-ag h2 a { color: var(--texte); text-decoration: none; }
+.encadre-ag h2 a:hover { text-decoration: underline; }
+.encadre-ag .fiche { border-bottom: 0; margin-bottom: 0.5rem; }
+.encadre.encadre-ag.a-venir { background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+
+.grille-acces { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
+.carte-acces { display: flex; flex-direction: column; gap: 0.3rem; height: 100%; padding: 1.1rem 1.25rem; background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon); color: var(--texte); text-decoration: none; }
+.carte-acces strong { font-family: var(--police-titres); font-size: 1.2rem; color: var(--accent); }
+.carte-acces span { color: var(--texte-discret); font-size: 0.95rem; }
+.carte-acces:hover { border-color: var(--accent); }
+.carte-acces:hover strong { text-decoration: underline; }
+
+.bandeau { background: var(--surface); border-block: 1px solid var(--bordure); }
+.bandeau h2 { margin-top: 0; }
+.bandeau-interieur { display: grid; gap: 1rem; }
+@media (min-width: 48rem) { .bandeau-interieur { grid-template-columns: 1fr auto; align-items: center; } .bandeau-actions { margin: 0; } }
+
+/* --- Assemblées et documents ---------------------------------------------- */
+.fiche { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1rem; padding: 1rem 0; border-block: 1px solid var(--bordure); margin-block: 1rem 1.5rem; }
+.fiche dt { font-weight: 700; }
+.fiche dd { margin: 0; }
+@media (max-width: 30rem) { .fiche { grid-template-columns: 1fr; gap: 0.1rem; } .fiche dd { margin-bottom: 0.5rem; } }
+.liste-ag { padding-left: 0; list-style: none; }
+.liste-ag li { padding: 0.75rem 0; border-bottom: 1px solid var(--bordure); }
+.ordre-du-jour li { margin-bottom: 0.45em; padding-left: 0.25em; }
+.ordre-du-jour li::marker { font-weight: 700; color: var(--accent); }
+.odj-doc { white-space: nowrap; }
+@media (max-width: 40rem) { .odj-doc { white-space: normal; } }
+.signature { margin-top: 1.5rem; font-style: italic; color: var(--texte-discret); }
+.liste-docs { list-style: none; padding: 0; }
+.liste-docs li { padding: 0.55rem 0 0.55rem 2rem; border-bottom: 1px solid var(--bordure); position: relative; }
+.liste-docs li::before { content: ""; position: absolute; left: 0.25rem; top: 0.8rem; width: 1rem; height: 1.25rem; border: 2px solid var(--accent); border-radius: 2px; background: linear-gradient(var(--accent), var(--accent)) center 55% / 50% 2px no-repeat; }
+.lien-doc { font-weight: 600; }
+.doc-info { color: var(--texte-discret); font-size: 0.85rem; white-space: nowrap; }
+.groupe-docs h3 { margin: 1.5rem 0 0.25rem; font-size: 1.15rem; }
+.groupe-docs h3 a { color: var(--texte); }
+.liste-avis { padding-left: 1.2rem; }
+.voisins { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--bordure); }
+
+/* --- Pages de texte, comité ----------------------------------------------- */
+.page-texte { max-width: 48rem; }
+.texte { max-width: 42rem; }
+.texte blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; font-style: italic; }
+.encadre { background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon); padding: 1.25rem 1.5rem; }
+.encadre > h2:first-child { margin-top: 0; }
+.liste-comite { list-style: none; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); }
+.liste-comite li { display: flex; flex-direction: column; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon); }
+.comite-fonction { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.75rem; font-weight: 700; color: var(--texte-discret); }
+.comite-nom { font-family: var(--police-titres); font-size: 1.2rem; font-weight: 700; }
+.comite-email { font-size: 0.95rem; overflow-wrap: anywhere; }
+
+/* --- Pied de page --------------------------------------------------------- */
+.pied { background: var(--pied); color: var(--pied-texte); margin-top: 3rem; }
+.pied a { color: inherit; }
+.pied h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+.pied-interieur { max-width: var(--largeur-max); margin-inline: auto; padding: 2.5rem 1rem 1.5rem; display: grid; gap: 2rem; }
+@media (min-width: 48rem) { .pied-interieur { grid-template-columns: 1.2fr 1fr 1fr; padding-inline: 1.5rem; } }
+.pied-logo { width: 3.5rem; margin-bottom: 1rem; }
+.pied address { font-style: normal; margin-bottom: 0.75rem; }
+.pied-bas { border-top: 1px solid rgb(255 255 255 / 0.15); text-align: center; font-size: 0.85rem; padding: 1rem; opacity: 0.85; }
+.pied-bas p { margin: 0; }

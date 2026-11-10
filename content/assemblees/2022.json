@@ -1,0 +1,47 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 7,
+  "type": "ordinaire",
+  "date": "2022-11-21",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle paroissiale, Route de l'Abbaye 31, Vétroz",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 27 juillet 2021, approbation par l'assemblée",
+      "document": "2020-2021/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2021"
+    },
+    {
+      "point": "Remise en état des murs 2022-2023"
+    },
+    {
+      "point": "Renouvellement du comité"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "non-signe",
+      "fichier": "assemblees/2022/pv.pdf"
+    }
+  ]
+}

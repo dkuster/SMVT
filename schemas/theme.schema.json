@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Thème graphique",
+  "description": "Transformé en variables CSS au build (/css/theme.css).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["couleurs", "polices"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "couleurs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fond", "surface", "texte", "texteDiscret", "accent", "accentTexte", "bordure", "logo"],
+      "properties": {
+        "fond": { "$ref": "#/$defs/couleur", "description": "Fond des pages." },
+        "surface": { "$ref": "#/$defs/couleur", "description": "Fond des cartes et encadrés." },
+        "texte": { "$ref": "#/$defs/couleur" },
+        "texteDiscret": { "$ref": "#/$defs/couleur", "description": "Textes secondaires (dates, légendes)." },
+        "accent": { "$ref": "#/$defs/couleur", "description": "Boutons, liens, éléments forts." },
+        "accentTexte": { "$ref": "#/$defs/couleur", "description": "Texte posé sur la couleur d'accent." },
+        "bordure": { "$ref": "#/$defs/couleur" },
+        "logo": { "$ref": "#/$defs/couleur", "description": "Couleur du logo (SVG en currentColor)." },
+        "piedDePage": { "$ref": "#/$defs/couleur", "description": "Fond du pied de page." },
+        "piedDePageTexte": { "$ref": "#/$defs/couleur" }
+      }
+    },
+    "polices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["titres", "texte"],
+      "properties": {
+        "titres": { "type": "string", "description": "Pile de polices CSS des titres." },
+        "texte": { "type": "string", "description": "Pile de polices CSS du texte courant." },
+        "fichiers": {
+          "type": "array",
+          "description": "Polices auto-hébergées (fichiers .woff2 dans theme/fonts/).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["famille", "fichier"],
+            "properties": {
+              "famille": { "type": "string" },
+              "fichier": { "type": "string", "pattern": "^[A-Za-z0-9._-]+\\.woff2$" },
+              "graisse": { "type": "string", "default": "400", "description": "Ex. 400, 700 ou plage 100 900" },
+              "style": { "enum": ["normal", "italic"], "default": "normal" }
+            }
+          }
+        }
+      }
+    },
+    "rayon": { "type": "string", "description": "Arrondi des cartes et boutons, ex. 10px." },
+    "largeurMax": { "type": "string", "description": "Largeur maximale du contenu, ex. 68rem." }
+  },
+  "$defs": {
+    "couleur": { "type": "string", "pattern": "^(#[0-9a-fA-F]{3,8}|(rgb|rgba|hsl|hsla|oklch)\\(.+\\))$" }
+  }
+}

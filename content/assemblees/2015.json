@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 1,
+  "type": "ordinaire",
+  "date": "2015-06-16",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle paroissiale, Vétroz",
+  "convoqueeLe": "2015-06-01",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée, désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée constitutive du 3 novembre 2014, approbation par l'assemblée",
+      "document": "documents/pv-constitution"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Commission d'exécution : prise de connaissance des membres et de leurs fonctions"
+    },
+    {
+      "point": "Présentation et approbation du programme des travaux"
+    },
+    {
+      "point": "Contributions des membres du syndicat"
+    },
+    {
+      "point": "Rétribution des membres du comité et des commissions autres que celle d'exécution, sur préavis des vérificateurs de comptes"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "dossier",
+      "type": "dossier",
+      "fichier": "assemblees/2015/dossier.pdf"
+    },
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2015/pv.pdf"
+    }
+  ]
+}

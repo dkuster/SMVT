@@ -1,0 +1,19 @@
+---
+layout: layouts/base.njk
+titre: Comité
+description: Composition du comité du Syndicat pour le Maintien du Vignoble en Terrasses de Vétroz.
+permalink: /comite/
+---
+<div class="conteneur section page-texte">
+  <h1>Comité</h1>
+  {%- if smvt.comite.introduction %}<div class="texte">{{ smvt.comite.introduction | html | safe }}</div>{% endif %}
+  <ul class="liste-comite">
+    {%- for m in smvt.comite.membres %}
+    <li>
+      <span class="comite-fonction">{{ m.fonction or "Membre" }}</span>
+      <span class="comite-nom">{{ m.nom }}</span>
+      {%- if m.email %}<a class="comite-email" href="mailto:{{ m.email }}">{{ m.email }}</a>{% endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</div>

@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+titre: Avis
+description: Avis du SMVT et de la commune de Vétroz concernant le vignoble en terrasses.
+permalink: /avis/
+---
+<div class="conteneur section page-texte">
+  <h1>Avis</h1>
+  {%- if smvt.avis.length %}
+  <ul class="liste-avis">
+    {%- for a in smvt.avis %}
+    <li><a href="{{ a.url }}">{{ a.titre }}</a> <span class="discret">— {{ a.date | dateSimple }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- else %}
+  <p>Aucun avis pour le moment.</p>
+  {%- endif %}
+</div>

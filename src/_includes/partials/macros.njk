@@ -1,0 +1,19 @@
+{#- Lien vers un document (PDF) avec format et taille. -#}
+{% macro lienDocument(d, titre) -%}
+<a class="lien-doc" href="{{ d.url }}">{{ titre or d.titreComplet or d.titre }}</a> <span class="doc-info">{{ d.format }}{% if d.taille %}, {{ d.taille }}{% endif %}</span>
+{%- endmacro %}
+
+{#- Informations pratiques d'une assemblée (date, heure, lieu…). -#}
+{% macro ficheAssemblee(ag) -%}
+<dl class="fiche">
+  {%- if ag.type == "correspondance" %}
+  <dt>Mode</dt><dd>Vote par correspondance</dd>
+  <dt>Bulletin à renvoyer avant le</dt><dd>{{ ag.delaiVote | dateLongue }}</dd>
+  {%- if ag.date %}<dt>Résultats</dt><dd>{{ ag.date | dateLongue }}</dd>{% endif %}
+  {%- else %}
+  <dt>Date</dt><dd><strong>{{ ag.date | dateLongue }}</strong></dd>
+  <dt>Heure</dt><dd>{{ ag.heure | heure }}{% if ag.ouverture %} <span class="discret">(ouverture de la salle à {{ ag.ouverture | heure }})</span>{% endif %}</dd>
+  <dt>Lieu</dt><dd>{{ ag.lieu }}</dd>
+  {%- endif %}
+</dl>
+{%- endmacro %}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Page de texte simple",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["titre", "texte"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "titre": { "type": "string" },
+    "introduction": { "type": "string", "description": "Chapeau en texte simple (aussi utilisé comme description pour les moteurs de recherche)." },
+    "texte": { "$ref": "communs.schema.json#/$defs/texteHtml" },
+    "images": { "type": "array", "items": { "$ref": "communs.schema.json#/$defs/image" } }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Redirections des anciennes adresses",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["redirections"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "redirections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["de", "vers"],
+        "properties": {
+          "de": { "type": "string", "pattern": "^/[a-z0-9/._-]*/$", "description": "Ancienne adresse, ex. /2017-paul-m-a-laisse-sa-cle/" },
+          "vers": { "type": "string", "pattern": "^/", "description": "Nouvelle adresse sur le site, ex. /spectacles/2017-paul-m-a-laisse-sa-cle/" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+titre: Confidentialité
+permalink: /confidentialite/
+---
+{%- set s = smvt.site %}
+<article class="conteneur section page-texte">
+  <h1>Confidentialité</h1>
+  <p class="chapeau">Ce site ne collecte aucune donnée personnelle, ne dépose aucun cookie et n'utilise aucun outil de mesure d'audience.</p>
+  <h2>Hébergement</h2>
+  <p>Le site est hébergé par GitHub Pages. Comme tout serveur web, GitHub peut enregistrer techniquement l'adresse IP des visiteurs à des fins de sécurité. Voir la <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité de GitHub</a>.</p>
+  <h2>Messages et formulaires</h2>
+  <p>Les messages envoyés aux adresses du syndicat sont lus uniquement par les membres du comité concernés et servent au traitement de votre demande.</p>
+  {%- if (s.conduite and s.conduite.formulaire) or (s.lettreInformation and s.lettreInformation.inscription) %}
+  <p>Certains services sont fournis par des prestataires externes, qui appliquent leurs propres règles de protection des données :</p>
+  <ul>
+    {%- if s.conduite and s.conduite.formulaire %}<li>Signalement d'un problème de conduite : formulaire Tally (Tally BV, Belgique) ;</li>{% endif %}
+    {%- if s.lettreInformation and s.lettreInformation.inscription %}<li>Lettre d'information : {{ s.lettreInformation.service or "service externe" }}. Vous pouvez vous désinscrire à tout moment par le lien figurant dans chaque message.</li>{% endif %}
+  </ul>
+  {%- endif %}
+  <h2>Contact</h2>
+  <p>Pour toute question relative à vos données (loi fédérale sur la protection des données, nLPD) : <a href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a>.</p>
+</article>

@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 8,
+  "type": "ordinaire",
+  "date": "2023-12-20",
+  "heure": "19:00",
+  "ouverture": "18:30",
+  "lieu": "Salle paroissiale, Route de l'Abbaye 31, Vétroz",
+  "convoqueeLe": "2023-11-23",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 21 novembre 2022, approbation par l'assemblée",
+      "document": "2022/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2022"
+    },
+    {
+      "point": "Remise en état des murs 2023-2024"
+    },
+    {
+      "point": "Projet « Filtration »"
+    },
+    {
+      "point": "Renouvellement du poste de caissier"
+    },
+    {
+      "point": "Renouvellement des vérificateurs des comptes"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2023/pv.pdf"
+    }
+  ]
+}

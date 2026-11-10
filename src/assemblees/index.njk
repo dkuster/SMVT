@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+titre: Assemblées générales
+description: Convocations, ordres du jour, procès-verbaux et décisions des assemblées générales du SMVT depuis 2015.
+permalink: /assemblees/
+---
+<div class="conteneur section">
+  <h1>Assemblées générales</h1>
+  <p class="chapeau">Les membres propriétaires de vignes dans le périmètre du syndicat sont convoqués chaque année en assemblée générale.</p>
+  <ol class="liste-ag" reversed>
+    {%- for ag in smvt.assemblees %}
+    <li>
+      <a href="{{ ag.url }}"><strong>{{ ag.titre }}</strong></a>
+      <span class="discret">— n° {{ ag.numero }},
+        {%- if ag.type == "correspondance" %} vote par correspondance{% if ag.date %} ({{ ag.date | dateSimple }}){% endif %}
+        {%- else %} {{ ag.date | dateLongue }}{% endif %}</span>
+      {%- if ag.aVenir %} <span class="badge badge-accent">à venir</span>{% endif %}
+    </li>
+    {%- endfor %}
+  </ol>
+</div>

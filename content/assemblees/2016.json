@@ -1,0 +1,42 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 2,
+  "type": "ordinaire",
+  "date": "2016-09-20",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle paroissiale, Vétroz",
+  "convoqueeLe": "2016-08-30",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée, mot du Président"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 16 juin 2015, approbation par l'assemblée",
+      "document": "2015/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Présentation du programme des travaux 2016-2018"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2016/pv.pdf"
+    }
+  ]
+}

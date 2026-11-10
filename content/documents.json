@@ -1,0 +1,10 @@
+{
+  "$schema": "../schemas/documents.schema.json",
+  "documents": [
+    { "id": "statuts", "titre": "Statuts du syndicat", "date": "2014-11-03", "fichier": "documents/statuts.pdf" },
+    { "id": "pv-constitution", "titre": "Procès-verbal de l'assemblée constitutive, statuts et résultats des votes", "date": "2014-11-03", "fichier": "documents/pv-constitution-2014.pdf" },
+    { "id": "decision-grand-conseil", "titre": "Décision du Grand Conseil", "date": "2014-06-13", "fichier": "documents/decision-grand-conseil-2014.pdf" },
+    { "id": "plan-sous-perimetre-1", "titre": "Plan du sous-périmètre 1", "fichier": "documents/plan-sous-perimetre-1.pdf" },
+    { "id": "reception-travaux-2019", "titre": "Réception des travaux", "date": "2019-12-03", "fichier": "documents/reception-travaux-2019.pdf" }
+  ]
+}

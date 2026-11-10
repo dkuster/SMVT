@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Avis",
+  "description": "Avis ponctuel (arrosages, travaux…). Fichier content/avis/AAAA-MM-JJ-titre.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["titre", "date", "texte"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "titre": { "type": "string", "minLength": 3 },
+    "date": { "$ref": "communs.schema.json#/$defs/date", "description": "Date de publication (= préfixe du nom de fichier)." },
+    "jusquau": { "$ref": "communs.schema.json#/$defs/date", "description": "Affiché sur l'accueil jusqu'à cette date incluse." },
+    "texte": { "$ref": "communs.schema.json#/$defs/texteHtml" },
+    "documents": { "type": "array", "items": { "$ref": "communs.schema.json#/$defs/documentSimple" } },
+    "brouillon": { "type": "boolean" }
+  }
+}

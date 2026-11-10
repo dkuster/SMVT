@@ -1,0 +1,20 @@
+# Dépendances et fichiers générés
+node_modules/
+_site/
+.cache/
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Sécurité : jamais de secrets ni de données personnelles dans ce dépôt PUBLIC
+.env
+.env.*
+*.sql
+*.sql.gz
+*.csv
+Wordpress/
+Database/
+uploads/

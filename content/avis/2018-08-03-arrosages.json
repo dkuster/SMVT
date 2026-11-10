@@ -1,0 +1,16 @@
+{
+  "$schema": "../../schemas/avis.schema.json",
+  "titre": "Arrosages",
+  "date": "2018-08-03",
+  "texte": [
+    "En raison de la forte demande en eau d'irrigation pour l'arrosage des vignes du coteau, des tours d'eau sont organisés selon le plan et les horaires ci-joints.",
+    "Nous vous remercions pour votre collaboration.",
+    "<p><em>L'Administration communale de Vétroz</em></p>"
+  ],
+  "documents": [
+    {
+      "titre": "Plan et horaires des tours d'arrosage 2018",
+      "fichier": "avis/plan-arrosage-2018.pdf"
+    }
+  ]
+}

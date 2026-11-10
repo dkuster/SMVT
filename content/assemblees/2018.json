@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/assemblee.schema.json",
+  "numero": 4,
+  "type": "ordinaire",
+  "date": "2018-10-23",
+  "heure": "20:00",
+  "ouverture": "19:30",
+  "lieu": "Salle paroissiale, Vétroz",
+  "ordreDuJour": [
+    {
+      "point": "Contrôle des présences à l'entrée dans la salle"
+    },
+    {
+      "point": "Ouverture de l'assemblée, mot du Président"
+    },
+    {
+      "point": "Désignation des scrutateurs"
+    },
+    {
+      "point": "Lecture du procès-verbal de l'assemblée générale ordinaire du 4 mai 2017, approbation par l'assemblée",
+      "document": "2017/pv"
+    },
+    {
+      "point": "Rapport du Comité"
+    },
+    {
+      "point": "Comptes 2017"
+    },
+    {
+      "point": "Remise en état des murs 2018-2019"
+    },
+    {
+      "point": "Divers"
+    }
+  ],
+  "documents": [
+    {
+      "id": "presentation",
+      "type": "presentation",
+      "fichier": "assemblees/2018/presentation.pdf"
+    },
+    {
+      "id": "pv",
+      "type": "pv",
+      "statut": "signe",
+      "fichier": "assemblees/2018/pv.pdf"
+    }
+  ]
+}

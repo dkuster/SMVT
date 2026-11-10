@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+titre: Contact
+description: Contacter le comité du SMVT et signaler un problème de conduite d'irrigation.
+permalink: /contact/
+---
+{%- set s = smvt.site %}
+<div class="conteneur section page-texte">
+  <h1>Contact</h1>
+
+  <h2>Questions générales</h2>
+  <p>Pour toute question (cotisations, changement de propriétaire ou d'adresse, assemblée générale…), écrivez au secrétariat :</p>
+  <p><a class="bouton bouton-secondaire" href="mailto:{{ s.contact.email }}">{{ s.contact.email }}</a></p>
+  {%- if s.contact.adresse %}
+  {%- set a = s.contact.adresse %}
+  <p>Par courrier : {{ s.nomCourt }}, {% if a.complement %}{{ a.complement }}, {% endif %}{{ a.rue }}, {{ a.npa }} {{ a.localite }}</p>
+  {%- endif %}
+
+  <h2>Comité</h2>
+  <ul class="liste-simple">
+    {%- for m in smvt.comite.membres %}{% if m.email %}
+    <li>{{ m.fonction }} : <a href="mailto:{{ m.email }}">{{ m.email }}</a></li>
+    {%- endif %}{% endfor %}
+  </ul>
+  <p><a class="lien-fleche" href="/comite/">Composition du comité</a></p>
+
+  {%- if s.conduite %}
+  <section id="conduite" class="encadre section-courte">
+    <h2>Signaler un problème de conduite</h2>
+    <p>Fuite, conduite endommagée ou problème d'eau d'irrigation sur votre parcelle : indiquez vos coordonnées, le ou les numéros de parcelle concernés et décrivez le problème. Une photo aide beaucoup.</p>
+    {%- set corps = "Nom :\nPrénom :\nAdresse :\nNPA et localité :\nTéléphone mobile :\nNuméro(s) de la ou des parcelle(s) concernée(s) :\n\nDescription du problème :\n\n\n(Vous pouvez joindre une photo à ce message.)" %}
+    {%- if s.conduite.formulaire %}
+    <p><a class="bouton" href="{{ s.conduite.formulaire }}" target="_blank" rel="noopener">Remplir le formulaire de signalement</a></p>
+    <p class="discret">Ou par e-mail : <a href="{{ s.conduite.email | mailto('Problème de conduite', corps) }}">{{ s.conduite.email }}</a></p>
+    {%- else %}
+    <p><a class="bouton" href="{{ s.conduite.email | mailto('Problème de conduite', corps) }}">Écrire à {{ s.conduite.email }}</a></p>
+    <p class="discret">Le bouton ouvre votre messagerie avec un message à compléter.</p>
+    {%- endif %}
+  </section>
+  {%- endif %}
+
+  <h2>Lettre d'information</h2>
+  <p>Pour recevoir les convocations et les informations importantes par e-mail : <a href="/lettre-information/">inscription à la lettre d'information</a>.</p>
+</div>

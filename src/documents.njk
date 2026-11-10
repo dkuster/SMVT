@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+titre: Documents
+description: Statuts, procès-verbaux des assemblées générales, plans et autres documents du SMVT.
+permalink: /documents/
+---
+{%- from "partials/macros.njk" import lienDocument %}
+<div class="conteneur section page-texte">
+  <h1>Documents</h1>
+
+  <h2>Documents de référence</h2>
+  <ul class="liste-docs">
+    {%- for d in smvt.documentsReference %}
+    <li>{{ lienDocument(d) }}{% if d.date %} <span class="discret">— {{ d.date | dateSimple }}</span>{% endif %}{% if d.description %}<br><span class="discret">{{ d.description }}</span>{% endif %}</li>
+    {%- endfor %}
+  </ul>
+
+  <h2>Assemblées générales</h2>
+  {%- for ag in smvt.assemblees %}
+  {%- if ag.documents.length %}
+  <section class="groupe-docs">
+    <h3><a href="{{ ag.url }}">{{ ag.titre }}</a> <span class="discret">— {% if ag.type == "correspondance" %}vote par correspondance{% else %}{{ ag.date | dateSimple }}{% endif %}</span></h3>
+    <ul class="liste-docs">
+      {%- for d in ag.documents %}<li>{{ lienDocument(d) }}</li>{% endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+  {%- endfor %}
+
+  {%- set avisAvecDocs = smvt.avisAvecDocuments %}
+  {%- if avisAvecDocs.length %}
+  <h2>Avis</h2>
+  <ul class="liste-docs">
+    {%- for a in avisAvecDocs %}{% for d in a.documents %}
+    <li>{{ lienDocument(d) }} <span class="discret">— <a href="{{ a.url }}">{{ a.titre }}</a>, {{ a.date | dateSimple }}</span></li>
+    {%- endfor %}{% endfor %}
+  </ul>
+  {%- endif %}
+</div>
